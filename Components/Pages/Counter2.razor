@@ -1,0 +1,25 @@
+﻿@page "/counter2"
+@rendermode InteractiveServer
+
+<PageTitle>Contador 2</PageTitle>
+
+<h1>Contador 2</h1>
+
+<div role="status" style="padding-bottom: 1em;">
+    <!-- Ejemplo de finalización explícita sobre el principio y el final de la expresión de C# usando paréntesis en Razor 👇 -->
+    Recuento actual: <FluentBadge Appearance="Appearance.Neutral">@(conteoActual)</FluentBadge>
+</div>
+
+<FluentButton Appearance="Appearance.Accent" @onclick="IncrementarConteo">Haz clic en mí</FluentButton>
+
+@code {
+    private int conteoActual = 0;
+
+    [Parameter]
+    public int MontoAIncrementar { get; set; } = 1;
+
+    private void IncrementarConteo()
+    {
+        conteoActual += MontoAIncrementar;
+    }
+}
