@@ -1,0 +1,25 @@
+﻿@page "/counter1"
+@rendermode InteractiveServer
+
+<PageTitle>Contador 1</PageTitle>
+
+<h1>Contador 1</h1>
+
+<div role="status" style="padding-bottom: 1em;">
+    <!-- Ejemplo de finalización implícita de una expresión de C# en Razor 👇 -->
+    Recuento actual: <FluentBadge Appearance="Appearance.Neutral">@conteoActual</FluentBadge>
+    </div>
+
+<FluentButton Appearance="Appearance.Accent" @onclick="IncrementarConteo">Haz clic en mí</FluentButton>
+
+@code {
+    private int conteoActual = 0;
+
+    [Parameter]
+    public int MontoAIncrementar { get; set; } = 1;
+
+    private void IncrementarConteo()
+    {
+        conteoActual += MontoAIncrementar;
+    }
+}
